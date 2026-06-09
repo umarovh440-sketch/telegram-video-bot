@@ -40,8 +40,6 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     
     text = f"""👋 Хуш омадед, {user.first_name}!
 
-🎬 **БОТИ МОНТАЖИ ВИДЕО**
-
 **Функсияҳо:**
 ✅ Видео монтаж (буридан, эффектҳо, музика)
 ✅ Расм монтаж (эффектҳо, текст)
