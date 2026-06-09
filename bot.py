@@ -38,7 +38,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     ]
     reply_markup = InlineKeyboardMarkup(keyboard)
     
-    text = f"""👋 Салом, {user.first_name}!
+    text = f"""👋 Хуш омадед, {user.first_name}!
 
 🎬 **БОТИ МОНТАЖИ ВИДЕО**
 
