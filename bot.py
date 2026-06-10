@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 🎬 БОТИ TELEGRAM БАРОИ МОНТАЖИ ВИДЕО
-Функсияҳо: видео монтаж, расм, мемҳо, эффектҳо, музика, текст, ҷустуҷӯ, AI
+Функсияҳо: видео монтаж, расм, мемҳо, эффектҳо, музика, текст, AI
 """
 
 import os
@@ -32,9 +32,8 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
         [InlineKeyboardButton("✂️ Видео монтаж", callback_data="video_edit"),
          InlineKeyboardButton("🖼️ Расм монтаж", callback_data="image_edit")],
         [InlineKeyboardButton("😂 Мемҳо", callback_data="memes"),
-         InlineKeyboardButton("🔍 Ҷустуҷӯ", callback_data="search")],
-        [InlineKeyboardButton("🤖 AI видео", callback_data="ai_video"),
-         InlineKeyboardButton("❓ Кӯмак", callback_data="help")]
+         InlineKeyboardButton("🤖 AI видео", callback_data="ai_video")],
+        [InlineKeyboardButton("❓ Кӯмак", callback_data="help")]
     ]
     reply_markup = InlineKeyboardMarkup(keyboard)
     
@@ -44,7 +43,6 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
 ✅ Видео монтаж (буридан, эффектҳо, музика)
 ✅ Расм монтаж (эффектҳо, текст)
 ✅ Мемҳо (10+ шаблон)
-✅ Ҷустуҷӯ (видео, расм, музика)
 ✅ AI видео генератор
 ✅ 100% БЕСПЛАТНА
 
@@ -86,12 +84,7 @@ async def help_cmd(update: Update, context: ContextTypes.DEFAULT_TYPE):
    Change My Mind, This Is Fine
    Uno Reverse
 
-4️⃣ **ҶУСТУҶӮ**
-   🎬 Видео
-   🖼️ Расм
-   🎵 Музика
-
-5️⃣ **AI ВИДЕО**
+4️⃣ **AI ВИДЕО**
    🤖 AI генератор
    📝 Текст ба видео
    🎬 Видео созед
@@ -164,7 +157,6 @@ async def callback_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
 ✅ Видео монтаж
 ✅ Расм монтаж
 ✅ Мемҳо
-✅ Ҷустуҷӯ
 ✅ AI видео"""
         await query.edit_message_text(text, parse_mode='Markdown')
     
@@ -185,15 +177,6 @@ async def callback_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
         ]
         reply_markup = InlineKeyboardMarkup(keyboard)
         await query.edit_message_text("😂 **МЕМҲО**\n\nШаблон интихоб кунед:", reply_markup=reply_markup, parse_mode='Markdown')
-    
-    elif data == "search":
-        keyboard = [
-            [InlineKeyboardButton("🎬 Видео", callback_data="search_video"),
-             InlineKeyboardButton("🖼️ Расм", callback_data="search_image")],
-            [InlineKeyboardButton("🎵 Музика", callback_data="search_music")]
-        ]
-        reply_markup = InlineKeyboardMarkup(keyboard)
-        await query.edit_message_text("🔍 **ҶУСТУҶӮ**\n\nТип интихоб кунед:", reply_markup=reply_markup, parse_mode='Markdown')
     
     elif data == "ai_video":
         await query.edit_message_text("🤖 **AI ВИДЕО ГЕНЕРАТОР**\n\nТекст ворид кунед ва видео созед!", parse_mode='Markdown')
